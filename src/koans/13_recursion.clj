@@ -3,21 +3,27 @@
 
 (defn is-even? [n]
   (if (= n 0)
-    __
-    (___ (is-even? (dec n)))))
+    true
+    (not (is-even? (dec n)))))
 
 (defn is-even-bigint? [n]
   (loop [n   n
          acc true]
     (if (= n 0)
-      __
+      acc
       (recur (dec n) (not acc)))))
 
 (defn recursive-reverse [coll]
-  __)
+  (if (= (count coll) 1)
+    coll
+    (conj (recursive-reverse (vec (rest coll))) (first coll))))
 
 (defn factorial [n]
-  __)
+  (loop [n n
+         res 1]
+    (if (zero? n)
+      res
+      (recur (dec n) (* n res)))))
 
 (meditations
   "Recursion ends with a base case"
